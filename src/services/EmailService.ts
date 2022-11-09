@@ -14,7 +14,14 @@ interface IMessageDTO {
   message: IMailMessage;
 }
 
-class EmailService {
+interface IEmailService {
+    sendEmail(request: IMessageDTO): void;
+}
+
+class EmailService implements IEmailService {
+  sendEmail(request: IMessageDTO): void {
+      throw new Error("Method not implemented.");
+  }
   sendMail({ to, message }: IMessageDTO) {
     console.log(`E-mail enviado para ${to.name}: ${message.subject}`);
   }
